@@ -21,9 +21,9 @@ export default{
 
 <template>
   <div>
-    <AppHeader/>
+    <!-- <AppHeader/> -->
     <AppMain/>
-    <AppFooter/>
+    <!-- <AppFooter/> -->
   </div>
 </template>
 

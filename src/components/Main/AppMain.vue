@@ -12,7 +12,9 @@ export default {
 
 <template>
   <div>
-    AppMain
+    <main>
+      
+    </main>
   </div>
 </template>
 
