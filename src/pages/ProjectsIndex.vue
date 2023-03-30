@@ -12,6 +12,7 @@ export default {
   },
   data(){
     return{
+      apiUrl: 'http://127.0.0.1:8000/api',
       projects: null,
       currentPage: 1,
       lastPage: 1,
@@ -31,7 +32,7 @@ export default {
       this.getApiProjects();
     },
     getApiProjects() {
-      axios.get('http://127.0.0.1:8000/api/projects', {
+      axios.get(`${this.apiUrl}/projects`, {
         params: {
           page: this.currentPage,
           items_per_page: this.itemsPage,

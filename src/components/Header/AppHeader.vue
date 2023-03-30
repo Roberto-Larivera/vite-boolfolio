@@ -13,7 +13,7 @@ export default {
           label: 'Chi Sono'
         },
         {
-          routeName: 'projects.index',
+          routeName: 'projects-index',
           label: 'Progetti'
         }
       ]

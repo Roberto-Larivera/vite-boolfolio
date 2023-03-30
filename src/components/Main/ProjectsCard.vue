@@ -12,6 +12,13 @@ export default {
       default: null
     }
   },
+  computed: {
+    shortDescription() {
+      let shortDescription = this.project.description;
+      if (shortDescription.length > 128)
+        return shortDescription.substr(0, 128) + '...';
+    }
+  }
 
 }
 </script>
@@ -36,9 +43,12 @@ export default {
       </a>
 
 
-      <p class="card-text text-truncate">
-        {{ project.description ?? '' }}
+      <p class="card-text">
+        {{ shortDescription }}
       </p>
+      <!-- <p class="card-text text-truncate">
+          {{ project.description ?? '' }}
+        </p> -->
 
 
       <div v-if="project.type" class="text-center p-2">
@@ -51,9 +61,9 @@ export default {
         </li>
       </ul>
 
-      <template v-if="project.link_repo">
-        <a :href="project.link_repo" class="btn btn-primary">Vedi</a>
-      </template>
+        <router-link :to="{ name: 'projects-show', params: {slug: project.slug} }" class="btn btn-primary">
+          Vedi
+        </router-link>
     </div>
 
   </div>
