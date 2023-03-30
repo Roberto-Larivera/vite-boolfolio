@@ -21,9 +21,17 @@ export default{
 
 <template>
   <div>
-    <!-- <AppHeader/> -->
-    <AppMain/>
-    <!-- <AppFooter/> -->
+    <header>
+      <AppHeader/>
+    </header>
+
+    <main>
+      <router-view></router-view>
+    </main>
+    
+    <footer>
+      <AppFooter/>
+    </footer>
   </div>
 </template>
 
