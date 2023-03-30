@@ -3,7 +3,20 @@ export default {
   name: 'AppHeader',
   data() {
     return {
-
+      menuItems:[
+        {
+          routeName: 'home',
+          label: 'Home'
+        },
+        {
+          routeName: 'about-me',
+          label: 'Chi Sono'
+        },
+        {
+          routeName: 'projects.index',
+          label: 'Progetti'
+        }
+      ]
     }
   }
 
@@ -33,21 +46,9 @@ export default {
 
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-item">
-                  <router-link :to="{ name: 'home' }" class="nav-link">
-                    Home
-                  </router-link>
-                </li>
-
-                <li class="nav-item">
-                  <router-link :to="{ name: 'about-me' }" class="nav-link">
-                    Chi Sono
-                  </router-link>
-                </li>
-
-                <li class="nav-item">
-                  <router-link :to="{ name: 'projects.index' }" class="nav-link">
-                    Projects
+                <li class="nav-item" v-for="item in menuItems">
+                  <router-link :to="{ name: item.routeName }" class="nav-link">
+                    {{ item.label }}
                   </router-link>
                 </li>
 

@@ -7,6 +7,9 @@ import ProjectsCard from '../components/Main/ProjectsCard.vue';
 
 export default {
   name: 'ProjectsIndex',
+  components: {
+    ProjectsCard,
+  },
   data(){
     return{
       projects: null,
@@ -48,6 +51,13 @@ export default {
 
 <template>
   <div class="container mb-5 mt-5">
+    <div class="row mb-5">
+      <div class="col">
+        <h1>
+          Tutti i progetti 
+        </h1>
+      </div>
+    </div>
       <div class="row row-cols-4 g-4">
 
         <div class="col" v-for="project in projects">
@@ -57,12 +67,12 @@ export default {
       </div>
 
 
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-auto align-self-center">
           <nav>
             <ul class="pagination m-0">
               <li class="page-item" v-for="nPage in lastPage">
-                <button class="page-link p-3" :class="currentPage == nPage ? 'active' : ''" @click="changePage(nPage)">
+                <button class="page-link p-2" :class="currentPage == nPage ? 'active' : ''" @click="changePage(nPage)">
                   {{ nPage }}
                 </button>
               </li>
