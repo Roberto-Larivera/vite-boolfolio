@@ -26,10 +26,11 @@ export default {
         }
       })
         .then(response => {
-          console.log(response.data);
+
           if(response.data.success)
             this.project = response.data.projects;
-          console.log(this.project);
+          else
+          this.$router.push({name: 'not-found'})
 
         });
     }

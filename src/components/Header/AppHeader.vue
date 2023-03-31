@@ -24,11 +24,11 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col">
+  <div class="container h-100">
+    <div class="row h-100">
+      <div class="col h-100">
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary h-100">
           <div class="container-fluid">
 
             <!-- Titolo + button burger  -->

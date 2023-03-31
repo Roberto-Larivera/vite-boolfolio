@@ -35,4 +35,15 @@ export default{
 
 <style lang="scss">
 @import './style/main.scss';
+
+// generale
+header{
+  height: 100px;
+}
+main{
+  min-height: calc(100vh - 170px);
+}
+footer{
+  height: 70px;
+}
 </style>
