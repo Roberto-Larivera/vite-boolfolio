@@ -10,9 +10,10 @@ export default {
   components: {
     ProjectsCard,
   },
-  data(){
-    return{
+  data() {
+    return {
       apiUrl: 'http://127.0.0.1:8000/api',
+      statuscCallProjects: false,
       projects: null,
       currentPage: 1,
       lastPage: 1,
@@ -39,26 +40,44 @@ export default {
         }
       })
         .then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           this.projects = response.data.projects.data;
           this.lastPage = response.data.projects.last_page;
+          this.statuscCallProjects = true;
 
         });
     }
   },
-  
+
 }
 </script>
 
 <template>
-  <div class="container mb-5 mt-5">
-    <div class="row mb-5">
-      <div class="col">
+  <div class="container" :class="(projects == 0) || statuscCallProjects == false ? 'statusCallProjectH' : 'mb-5 mt-5'">
+    <div class="row h-100" v-if="statuscCallProjects == false">
+      <div class="col d-flex justify-content-center align-items-center h-100">
+        <div class="spinner-border text-info">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-5 h-100" v-if="statuscCallProjects && projects.length == 0">
+      <div class="col d-flex justify-content-center align-items-center h-100">
         <h1>
-          Tutti i progetti 
+          Ci dispiace non ci sono progetti da visualizzare
         </h1>
       </div>
     </div>
+
+    <template v-if="statuscCallProjects && projects.length > 0">
+      <div class="row mb-5">
+        <div class="col">
+          <h1>
+            Tutti i progetti
+          </h1>
+        </div>
+      </div>
       <div class="row row-cols-4 g-4">
 
         <div class="col" v-for="project in projects">
@@ -91,9 +110,18 @@ export default {
           </select>
         </div>
       </div>
-    </div>
+    </template>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.statusCallProjectH {
+  height: calc(100vh - 170px);
 
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+  }
+}
 </style>
