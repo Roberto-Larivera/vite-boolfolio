@@ -14,8 +14,8 @@ export default {
   <div class="container">
     <div class="row">
       <div class="col text-center">
-        <p>
-          Copyright &copy;  2022-2023 Roberto Larivera ❤️. All Rights Reserved
+        <p class="fw-light">
+          Copyright &copy; 2023 Roberto Larivera ❤️. All Rights Reserved
         </p>
       </div>
     </div>

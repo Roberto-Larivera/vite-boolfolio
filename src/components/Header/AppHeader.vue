@@ -3,7 +3,7 @@ export default {
   name: 'AppHeader',
   data() {
     return {
-      menuItems:[
+      menuItems: [
         {
           routeName: 'home',
           label: 'Home'
@@ -61,7 +61,6 @@ export default {
 
       </div>
     </div>
-  </div>
-</template>
+  </div></template>
 
 <style lang="scss" scoped></style>
