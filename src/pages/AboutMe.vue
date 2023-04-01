@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'AppFooter',
+  name: 'AboutMe',
   data(){
     return{
 
@@ -13,14 +13,15 @@ export default {
 <template>
   <div class="container">
     <div class="row">
-      <div class="col text-center">
-        <p class="fw-light">
-          Copyright &copy; 2023 Roberto Larivera ❤️. All Rights Reserved
-        </p>
-      </div>
+        <div class="col">
+            <h1>
+                AboutMe
+            </h1>
+        </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+
 </style>

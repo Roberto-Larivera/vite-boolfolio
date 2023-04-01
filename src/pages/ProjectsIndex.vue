@@ -1,23 +1,24 @@
 <script>
+// Axios
 import axios from 'axios';
-import ProjectsCard from './ProjectsCard.vue';
 
-
+// Components
+import ProjectsCard from '../components/Main/ProjectsCard.vue';
 
 export default {
-  name: 'AppMain',
+  name: 'ProjectsIndex',
   components: {
     ProjectsCard,
   },
-  data() {
-    return {
+  data(){
+    return{
+      apiUrl: 'http://127.0.0.1:8000/api',
       projects: null,
       currentPage: 1,
       lastPage: 1,
       itemsPage: 12,
     }
-  }
-  ,
+  },
   created() {
     this.getApiProjects();
   },
@@ -31,7 +32,7 @@ export default {
       this.getApiProjects();
     },
     getApiProjects() {
-      axios.get('http://127.0.0.1:8000/api/projects', {
+      axios.get(`${this.apiUrl}/projects`, {
         params: {
           page: this.currentPage,
           items_per_page: this.itemsPage,
@@ -45,19 +46,34 @@ export default {
         });
     }
   },
-
+  
 }
 </script>
 
 <template>
-  <main>
-    <div class="container">
-      <div class="row mb-5">
+  <div class="container mb-5 mt-5">
+    <div class="row mb-5">
+      <div class="col">
+        <h1>
+          Tutti i progetti 
+        </h1>
+      </div>
+    </div>
+      <div class="row row-cols-4 g-4">
+
+        <div class="col" v-for="project in projects">
+          <ProjectsCard :project="project" />
+        </div>
+
+      </div>
+
+
+      <div class="row mt-5">
         <div class="col-auto align-self-center">
           <nav>
             <ul class="pagination m-0">
               <li class="page-item" v-for="nPage in lastPage">
-                <button class="page-link p-3" :class="currentPage == nPage ? 'active' : ''" @click="changePage(nPage)">
+                <button class="page-link p-2" :class="currentPage == nPage ? 'active' : ''" @click="changePage(nPage)">
                   {{ nPage }}
                 </button>
               </li>
@@ -75,15 +91,9 @@ export default {
           </select>
         </div>
       </div>
-      <div class="row row-cols-4 g-4">
-
-        <div class="col" v-for="project in projects">
-          <ProjectsCard :project="project" />
-        </div>
-
-      </div>
     </div>
-  </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
