@@ -27,16 +27,16 @@ export default {
         }
       })
         .then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           if (response.data.success){
             this.project = response.data.project;
             this.statuscCallProject = true;
-            console.log(this.statuscCallProject );
+            // console.log(this.statuscCallProject );
           }
           else
             this.$router.push({ name: 'not-found' })
 
-          console.log(this.project);
+          // console.log(this.project);
         });
     }
   },
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-5 mb-5" :class="statuscCallProject == false ? 'statusCallProjectH':''">
+  <div class="container" :class="statuscCallProject == false ? 'statusCallProjectH':'mb-5 mt-5'">
     <div class="row h-100" v-if="statuscCallProject == false">
       <div class="col d-flex justify-content-center align-items-center h-100">
         <div class="spinner-border text-info">
